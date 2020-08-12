@@ -1,0 +1,84 @@
+//*------------------*
+//*  変数管理
+//*------------------*
+
+//color
+
+//font-family
+
+//*------------------*
+//*  レスポンシブ定義
+//*------------------*
+//ブレイクポイント
+$mb: 767px;
+
+//@mediaのフォーマット
+@mixin mobile {
+  @media screen and (max-width: $mb) {
+    @content;
+  }
+}
+
+//*------------------*
+//*  font-size定義
+//*------------------*
+//$sizeにpx表示でsizeを入れて使う
+@mixin rem($size) {
+  font-size: $size + px; /*IE9以下*/
+  font-size: ($size / 16) + rem;
+}
+
+//*------------------*
+//*  base(共通)
+//*------------------*
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  @include font-size(10);
+  letter-spacing: 0.5em;
+  color: black;
+  font-family: sans-serif;
+}
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+.section__wrapper {
+  padding: 100px 0 70px;
+}
+.section__ttl {
+  @include font-size(10);
+}
+.section__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+//*------------------*
+//*  header
+//*------------------*
+.header {
+  padding: 19px 30px;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+//*------------------*
+//*  fv
+//*------------------*
+
+//*------------------*
+//*  section
+//*------------------*
+
+//*------------------*
+//*  footer
+//*------------------*
