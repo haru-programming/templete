@@ -1,1 +1,53 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 10px;
+  /*IE9以下*/
+  font-size: 0.625rem;
+  letter-spacing: 0.5em;
+  color: black;
+  font-family: sans-serif;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.section__wrapper {
+  padding: 100px 0 70px;
+}
+
+.section__ttl {
+  font-size: 10px;
+  /*IE9以下*/
+  font-size: 0.625rem;
+}
+
+.section__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.header {
+  padding: 19px 30px;
+}
+
+.header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=style.css.map */

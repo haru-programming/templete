@@ -36,8 +36,9 @@ $mb: 767px;
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
-  @include font-size(10);
+  @include rem(10);
   letter-spacing: 0.5em;
   color: black;
   font-family: sans-serif;
@@ -50,7 +51,7 @@ img {
   padding: 100px 0 70px;
 }
 .section__ttl {
-  @include font-size(10);
+  @include rem(10);
 }
 .section__inner {
   max-width: 1000px;
