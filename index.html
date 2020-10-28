@@ -1,3 +1,10 @@
+Skip to content Search or jump to… Pull requests Issues Marketplace Explore
+@haru-programming hana329 / templete forked from haru-programming/templete 0 01
+Code Pull requests Actions Projects Wiki Security Insights templete/index.html
+@hana329 hana329 クラス名の変更追加、HTMLCSS調整 Latest commit 53784ba 41
+minutes ago History 2 contributors @haru-programming@hana329 75 lines (73 sloc)
+3.24 KB
+
 <!DOCTYPE html>
 <html lang="ja" prefix="og: サイトURL#">
   <head>
@@ -15,8 +22,7 @@
     <meta property="og:site_name" content="サイト名" />
     <meta property="og:image" content=" サムネイル画像の URL" />
     <!--//OGPここまで-->
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -27,25 +33,33 @@
         <!--ナビゲーション-->
         <nav class="nav">
           <ul class="nav__lists">
-            <li class="nav__list"><a href="#"></a></li>
-            <li class="nav__list"><a href="#"></a></li>
-            <li class="nav__list"><a href="#"></a></li>
-            <li class="nav__list"><a href="#"></a></li>
+            <li class="nav__list"><a href="#">メニュー</a></li>
+            <li class="nav__list"><a href="#">メニュー</a></li>
+            <li class="nav__list"><a href="#">メニュー</a></li>
+            <li class="nav__list"><a href="#">メニュー</a></li>
           </ul>
         </nav>
         <!--hamburgerボタンー-->
-        <span class="btn__hamburger">
-          <i></i>
-          <i></i>
-          <i></i>
-        </span>
+        <div class="hamburger-btn">
+          <span class="hamburger-btn__parts -top"></span>
+          <span class="hamburger-btn__parts -middle"></span>
+          <span class="hamburger-btn__parts -bottom"></span>
+        </div>
         <!--hamburgerメニュー-->
         <nav class="hamburger">
           <ul class="hamburger__lists">
-            <li class="hamburger__list"><a href="#"></a></li>
-            <li class="hamburger__list"><a href="#"></a></li>
-            <li class="hamburger__list"><a href="#"></a></li>
-            <li class="hamburger__list"><a href="#"></a></li>
+            <li class="hamburger__list">
+              <a class="hamburger__link" href="#">ハンバーガーメニュー</a>
+            </li>
+            <li class="hamburger__list">
+              <a class="hamburger__link" href="#">ハンバーガーメニュー</a>
+            </li>
+            <li class="hamburger__list">
+              <a class="hamburger__link" href="#">ハンバーガーメニュー</a>
+            </li>
+            <li class="hamburger__list">
+              <a class="hamburger__link" href="#">ハンバーガーメニュー</a>
+            </li>
           </ul>
         </nav>
         <!--//ここまでナビゲーション-->
@@ -70,6 +84,6 @@
     <!--//ここまでフッター-->
     <!--jQuery読み込み-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
