@@ -1,6 +1,6 @@
 $(function () {
   //ハンバーガーメニュー
-  $(".btn__hamburger").click(function () {
+  $(".hamburger-btn").click(function () {
     $(this).toggleClass("active");
 
     if ($(this).hasClass("active")) {
@@ -10,7 +10,7 @@ $(function () {
     }
   });
   $(".hamburger__list").click(function () {
-    $(".hamburger,.btn__hamburger").removeClass("active");
+    $(".hamburger,.hamburger-btn").removeClass("active");
   });
 
   //ヘッダー固定(SP)
