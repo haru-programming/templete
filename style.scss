@@ -3,16 +3,33 @@
 //*------------------*
 
 //color
+$color-black: #333333;
+$color-white: #ffffff;
 
 //font-family
+//-->ヒラギノver.
+$font-main: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+  Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
+//-->游ゴシックver.
+// $font-main:"游ゴシック Medium","Yu Gothic Medium","游ゴシック体",YuGothic,sans-serif;
 
 //*------------------*
 //*  レスポンシブ定義
 //*------------------*
+
 //ブレイクポイント
-$mb: 767px;
+$tb: 959px; //タブレット
+$mb: 559px; //スマホ
 
 //@mediaのフォーマット
+//タブレット
+@mixin mobile {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+//スマホ
 @mixin mobile {
   @media screen and (max-width: $mb) {
     @content;
@@ -22,9 +39,10 @@ $mb: 767px;
 //*------------------*
 //*  font-size定義
 //*------------------*
-//$sizeにpx表示でsizeを入れて使う
+//$sizeにpx表示を入れて使う
+
 @mixin rem($size) {
-  font-size: $size + px; /*IE9以下*/
+  font-size: $size + px; /*IE9以前に対応する*/
   font-size: ($size / 16) + rem;
 }
 
@@ -36,41 +54,147 @@ $mb: 767px;
   margin: 0;
   box-sizing: border-box;
 }
-
 body {
   @include rem(10);
   letter-spacing: 0.5em;
-  color: black;
-  font-family: sans-serif;
+  color: $color-black;
+  font-family: $font-main;
 }
 img {
   width: 100%;
   vertical-align: bottom;
 }
-.section__wrapper {
-  padding: 100px 0 70px;
-}
+
+//sectionの共通タイトル設定
 .section__ttl {
-  @include rem(10);
+  @include rem(18);
+  text-align: center;
 }
+
+//sectionの共通inner設定
 .section__inner {
-  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 4vw;
 }
 
 //*------------------*
 //*  header
 //*------------------*
 .header {
-  padding: 19px 30px;
+  &__inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2% 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //ヘッダーを固定する場合
+    //position: fixed;
+  }
 }
-.header__inner {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+
+//ナビゲーション
+.nav {
+  margin-left: auto;
+  @include mobile {
+    display: none;
+  }
+  &__list {
+    display: inline-block;
+    margin-right: 1vw;
+  }
 }
+
+//------------ここからhamburgerメニュー----------------->
+//スマホのナビゲーション(ハンバーガーメニュー)
+//ハンバーガーの部分
+.btn__hamburger {
+  display: none;
+  @include mobile {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 16px;
+    margin-right: 4vw;
+    z-index: 20;
+  }
+}
+.btn__hamburger i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: $color-white;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.5s;
+}
+.btn__hamburger i:nth-child(1) {
+  top: 0;
+}
+.btn__hamburger i:nth-child(2) {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.btn__hamburger i:nth-child(3) {
+  bottom: 0;
+}
+
+//タップ後のハンバーガー
+//１つ目のspanを-45度にする
+.btn__hamburger.active i:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+//2つ目のspanを消す
+.btn__hamburger.active i:nth-child(2) {
+  opacity: 0;
+}
+//3番目のspanを45度に
+.btn__hamburger.active i:nth-child(3) {
+  transform: translateY(-4px) rotate(45deg);
+}
+
+//スライドメニュー
+.hamburger {
+  display: none;
+  @include mobile {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(100vw);
+    transition: all 0.3s;
+    background-color: $color-black;
+    &__lists {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+    &__list {
+      @include rem(16);
+      list-style: none;
+      text-align: center;
+      & a {
+        text-decoration: none;
+        color: $color-white;
+      }
+    }
+    &__list + &__list {
+      padding-top: 50px;
+    }
+  }
+}
+//activeクラスをつけたら、スライドイン
+.hamburger.active {
+  transform: translateX(0);
+}
+
+//------------//ここまでhamburgerメニュー------------------>
 
 //*------------------*
 //*  fv
